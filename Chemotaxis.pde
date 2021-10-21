@@ -1,6 +1,6 @@
 color bgcol = color((int)(Math.random()*200), (int)(Math.random()*200), (int)(Math.random()*200));
-Walker fred;
-Walker [] dort = new Walker[15];
+mover fred;
+mover [] dort = new mover[15];
 
 void setup() {
   size(700, 700);
@@ -8,7 +8,7 @@ void setup() {
   frameRate(50);
   int i = 0;
   while (i < dort.length) {
-    dort[i] = new Walker();
+    dort[i] = new mover();
     i++;
   }
 }
@@ -20,20 +20,20 @@ void mousePressed() {
 void draw() {
   background(bgcol);
   for (int i = 0; i < dort.length; i++) {
-    dort[i].walk();
+    dort[i].move();
     dort[i].show();
   }
 }
 
-class Walker {
+class mover {
   int myX, myY, col;
 
-  Walker() {
+  mover() {
     myX = 350;
     myY = 350;
     col = color((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
   }
-  void walk() {
+  void move() {
     if (mouseX > myX) {
       if (mouseY > myY) {
         myX = myX + (int)(Math.random()*7)-1;
